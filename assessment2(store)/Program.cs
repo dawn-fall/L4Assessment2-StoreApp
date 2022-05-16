@@ -131,7 +131,7 @@ namespace assessment2_store_
             }
             if (userOption == "3")
             {
-                Console.WriteLine("Shops here");
+                Console.WriteLine("Shops here.");
             }
             if (userOption == "4")
             {
