@@ -55,6 +55,7 @@ namespace assessment2_store_
             Console.WriteLine("\t [3] View Store");
             Console.WriteLine("\t [4] Exit Application\n");
             Console.WriteLine("****************************************\n");
+            Console.WriteLine("Please choose an option ([1], [2], [3], [4])");
 
             // run checkinput
             CheckInput();
@@ -66,7 +67,6 @@ namespace assessment2_store_
 
             while (check == false)
             {
-                Console.WriteLine("Please choose an option ([1], [2], [3], [4])");
                 string userInput = Console.ReadLine();
 
                 // loop thru each item in the array (menuOptions) save each interation in the temp variable
@@ -95,6 +95,40 @@ namespace assessment2_store_
 
                 userOption = userInput;
                 ProcessMenu();
+
+
+            } // end of while loop
+
+        } // end of CheckInput
+
+        public static void CheckInputStore()
+        {
+            bool check = false;
+
+            while (check == false)
+            {
+                string userInput = Console.ReadLine();
+                foreach (string temp in menuOptions)
+                {
+                    check = userInput.Equals(temp);
+
+                    if (check)
+                    {
+                        break;
+                    }
+
+                } // end of foreach
+
+                if (check)
+                {
+
+                }
+                else
+                {
+                    Console.WriteLine("Your input " + userInput + " is not valid\n\n");
+                }
+
+                userOption = userInput;
 
 
             } // end of while loop
@@ -131,7 +165,16 @@ namespace assessment2_store_
             }
             if (userOption == "3")
             {
-                Console.WriteLine("Shops here.");
+                Console.WriteLine("****************************************\n");
+                Console.WriteLine("\t Select a category to view:\n");
+                Console.WriteLine("\t [1] Cat1");
+                Console.WriteLine("\t [2] Cat2");
+                Console.WriteLine("\t [3] Cat3");
+                Console.WriteLine("\t [4] Exit to Main Menu\n");
+                Console.WriteLine("****************************************\n");
+                Console.WriteLine("Please choose an option ([1], [2], [3], [4])");
+
+                CheckInputStore();
             }
             if (userOption == "4")
             {
@@ -139,6 +182,42 @@ namespace assessment2_store_
             }
             MainMenu();
         } // end ProcessMenu
+
+        static void storeMenu()
+        {
+            if(userOption == "1")
+            {
+                CatergoryOne();
+            }
+            if(userOption == "2")
+            {
+                CatergoryTwo();
+            }
+            if(userOption == "3")
+            {
+                CatergoryThree();
+            }
+            if(userOption == "4")
+            {
+                MainMenu();
+            }
+
+        }//end storeMenu
+
+        static void CatergoryOne()
+        {
+
+        }//end catONE
+
+        static void CatergoryTwo()
+        {
+
+        }//end catTWO
+
+        static void CatergoryThree()
+        {
+
+        }//end catTHREE
 
         static void Main(string[] args)
         {
