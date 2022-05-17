@@ -62,7 +62,7 @@ namespace assessment2_store_
             CheckInput();
         }
 
-        public static void CheckInput()
+        static void CheckInput()
         {
             bool check = false;
 
@@ -87,7 +87,7 @@ namespace assessment2_store_
 
                 if (check)
                 {
-                    
+
                 }
                 else
                 {
@@ -101,40 +101,6 @@ namespace assessment2_store_
             } // end of while loop
 
         } // end of CheckInput
-
-        public static void CheckInputStore()
-        {
-            bool check = false;
-
-            while (check == false)
-            {
-                string userInput = Console.ReadLine();
-                foreach (string temp in menuOptions)
-                {
-                    check = userInput.Equals(temp);
-
-                    if (check)
-                    {
-                        break;
-                    }
-
-                } // end of foreach
-
-                if (check)
-                {
-
-                }
-                else
-                {
-                    Console.WriteLine("Your input " + userInput + " is not valid\n\n");
-                }
-
-                userOption = userInput;
-
-
-            } // end of while loop
-
-        } // end of CheckInputStore
 
         static void ProcessMenu()
         {
@@ -166,18 +132,7 @@ namespace assessment2_store_
             }
             if (userOption == "3")
             {
-                Console.WriteLine("****************************************\n");
-                Console.WriteLine("\t Select a category to view:\n");
-                Console.WriteLine("\t [1] View CPU Options");
-                Console.WriteLine("\t [2] View GPU Options");
-                Console.WriteLine("\t [3] View RAM Options");
-                Console.WriteLine("\t [4] View Motherboard Options");
-                Console.WriteLine("\t [5] View Case Options");
-                Console.WriteLine("\t [6] Exit to Main Menu\n");
-                Console.WriteLine("****************************************\n");
-                Console.WriteLine("Please choose an option ([1], [2], [3], [4])");
-
-                CheckInputStore();
+                option3();
             }
             if (userOption == "4")
             {
@@ -186,21 +141,72 @@ namespace assessment2_store_
             MainMenu();
         } // end ProcessMenu
 
-        static void storeMenu()
+        public static void option3()
         {
-            if(userOption == "1")
+            Console.WriteLine("\n****************************************\n");
+            Console.WriteLine("\t Select a category to view:\n");
+            Console.WriteLine("\t [1] View CPU Options");
+            Console.WriteLine("\t [2] View GPU Options");
+            Console.WriteLine("\t [3] View RAM Options");
+            Console.WriteLine("\t [4] View Motherboard Options");
+            Console.WriteLine("\t [5] View Case Options");
+            Console.WriteLine("\t [6] Exit to Main Menu\n");
+            Console.WriteLine("****************************************\n");
+            Console.WriteLine("Please choose an option ([1], [2], [3], [4], [5], [6])");
+
+            CheckInputStore();
+        }
+
+        static void CheckInputStore()
+        {
+            bool check = false;
+
+            while (check == false)
+            {
+                string userInput = Console.ReadLine();
+                foreach (string temp in menuOptions)
+                {
+                    check = userInput.Equals(temp);
+
+                    if (check)
+                    {
+                        break;
+                    }
+
+                } // end of foreach
+
+                if (check)
+                {
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Your input " + userInput + " is not valid\n\n");
+                }
+
+                userOption = userInput;
+                storeMenu();
+
+
+            } // end of while loop
+
+        } // end of CheckInputStore
+
+        public static void storeMenu()
+        {
+            if (userOption == "1")
             {
                 CategoryOne();
             }
-            if(userOption == "2")
+            if (userOption == "2")
             {
                 CategoryTwo();
             }
-            if(userOption == "3")
+            if (userOption == "3")
             {
                 CategoryThree();
             }
-            if(userOption == "4")
+            if (userOption == "4")
             {
                 CategoryFour();
             }
@@ -217,7 +223,7 @@ namespace assessment2_store_
 
         static void CategoryOne()
         {
-            Console.WriteLine("****************************************\n");
+            Console.WriteLine("\n****************************************\n");
             Console.WriteLine("\t Select an item to view:\n");
             Console.WriteLine("\t [1] Ryzen 5 5600x");
             Console.WriteLine("\t [2] Ryzen 7 5700x");
@@ -227,11 +233,13 @@ namespace assessment2_store_
             Console.WriteLine("\t [6] Exit to Catergory Selection\n");
             Console.WriteLine("****************************************\n");
 
+            CheckInputItem();
+
         }//end catONE CPU
 
         static void CategoryTwo()
         {
-            Console.WriteLine("****************************************\n");
+            Console.WriteLine("\n****************************************\n");
             Console.WriteLine("\t Select an item to view:\n");
             Console.WriteLine("\t [1] Gigabyte GeForce RTX 3060");
             Console.WriteLine("\t [2] EVGA GeForce RTX 3070 Ti");
@@ -241,11 +249,13 @@ namespace assessment2_store_
             Console.WriteLine("\t [6] Exit to Catergory Selection\n");
             Console.WriteLine("****************************************\n");
 
+            CheckInputItem();
+
         }//end catTWO GPU
 
         static void CategoryThree()
         {
-            Console.WriteLine("****************************************\n");
+            Console.WriteLine("\n****************************************\n");
             Console.WriteLine("\t Select an item to view:\n");
             Console.WriteLine("\t [1] G.SKILL Ripjaws V Series 16GB");
             Console.WriteLine("\t [2] G.SKILL Ripjaws V Series 32GB");
@@ -255,11 +265,13 @@ namespace assessment2_store_
             Console.WriteLine("\t [6] Exit to Catergory Selection\n");
             Console.WriteLine("****************************************\n");
 
+            CheckInputItem();
+
         }//end catTHREE RAM
 
         static void CategoryFour()
         {
-            Console.WriteLine("****************************************\n");
+            Console.WriteLine("\n****************************************\n");
             Console.WriteLine("\t Select an item to view:\n");
             Console.WriteLine("\t [1] Gigabyte B550M mATX");
             Console.WriteLine("\t [2] ASUS ROG STRIX B550-A Gaming ATX");
@@ -269,25 +281,66 @@ namespace assessment2_store_
             Console.WriteLine("\t [6] Exit to Catergory Selection\n");
             Console.WriteLine("****************************************\n");
 
+            CheckInputItem();
+
         }//end catFOUR MOTHERBOARDS
 
         static void CategoryFive()
         {
-            Console.WriteLine("****************************************\n");
+            Console.WriteLine("\n****************************************\n");
             Console.WriteLine("\t Select an item to view:\n");
             Console.WriteLine("\t [1] DEEPCOOL MATREXX 55 (Black)");
             Console.WriteLine("\t [2] Phanteks Eclipse P360A (White)");
-            Console.WriteLine("\t [3] Corsair 400D Airflow (Black)");
+            Console.WriteLine("\t [3] Corsair 4000D Airflow (Black)");
             Console.WriteLine("\t [4] Lian Li Lancool 215 (Black)");
             Console.WriteLine("\t [5] NZXT H511 Compact (Matte White)");
             Console.WriteLine("\t [6] Exit to Catergory Selection\n");
             Console.WriteLine("****************************************\n");
 
+            CheckInputItem();
+
         }//end catFIVE CASES
+
+        public static void CheckInputItem()
+        {
+            bool check = false;
+
+            while (check == false)
+            {
+                string userInput = Console.ReadLine();
+                foreach (string temp in menuOptions)
+                {
+                    check = userInput.Equals(temp);
+
+                    if (check)
+                    {
+                        break;
+                    }
+
+                } // end of foreach
+
+                if (check)
+                {
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Your input " + userInput + " is not valid\n\n");
+                }
+
+                userOption = userInput;
+                processItems();
+            }
+        }//end item check input
+
+        public static void processItems()
+        {
+
+        }//end process items
 
         static void Main(string[] args)
         {
             StartCheckPin();
-        }
+        }//dont delete the main again, end
     }
 }
