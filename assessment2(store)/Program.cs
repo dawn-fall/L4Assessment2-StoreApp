@@ -9,15 +9,15 @@ namespace assessment2_store_
     internal class Program
     {
         //our allow user input options
-        public static string[] menuOptions = { "1", "2", "3", "4" };
+        public static string[] menuOptions = { "1", "2", "3", "4", "5", "6" };
         public static decimal balance = 0;
         public static string userOption = "";
 
-        private static void CheckPin()
+        private static void StartCheckPin()
         {
-            Console.WriteLine("Welcome to the StoreName. Please enter your name to begin the account making process.");
+            Console.WriteLine("Welcome to the Computer Store account maker. Please enter your name to begin the account making process.");
             string name = Console.ReadLine();
-            Console.WriteLine("\nGreat, thanks " + name + ". Now, please enter a pin. It can be any length.");
+            Console.WriteLine("\nGreat, thanks " + name + ". Now, please enter a pin or password. It can be any length.");
 
             //setting the user entered pin
             string pinUser = Console.ReadLine();
@@ -27,7 +27,7 @@ namespace assessment2_store_
 
             pin = Console.ReadLine();
 
-            //while loop to check pin
+            //while loop to check pin matches
             while (pin != pinUser)
             {
                 if (pin == pinUser)
@@ -36,12 +36,12 @@ namespace assessment2_store_
                 }
                 else
                 {
-                    Console.WriteLine("Pin number incorrect, please try again.");
+                    Console.WriteLine("\nPin number incorrect, please try again.");
                     pin = Console.ReadLine();
                 }
             }
 
-            Console.WriteLine("Pin correct.\n");
+            Console.WriteLine("\nPin correct.\n");
             MainMenu();
 
         } //end CheckPin
@@ -49,6 +49,7 @@ namespace assessment2_store_
         static void MainMenu()
         {
             Console.WriteLine("****************************************\n");
+            Console.WriteLine("\t Welcome to The Computer Store.\n");
             Console.WriteLine("\t Select an Option:\n");
             Console.WriteLine("\t [1] View Balance");
             Console.WriteLine("\t [2] Deposit Funds");
@@ -133,7 +134,7 @@ namespace assessment2_store_
 
             } // end of while loop
 
-        } // end of CheckInput
+        } // end of CheckInputStore
 
         static void ProcessMenu()
         {
@@ -141,21 +142,21 @@ namespace assessment2_store_
 
             if (userOption == "1")
             {
-                Console.WriteLine("Your balance is " + "$" + balance);
+                Console.WriteLine("\nYour balance is " + "$" + balance + ".\n");
                 if (balance <= 0)
                 {
-                    Console.WriteLine("You need to deposit some money.");
+                    Console.WriteLine("\nYou need to deposit some money.\n");
                 }
                 MainMenu();
             }
             if (userOption == "2")
             {
-                Console.WriteLine("Please enter an amount to deposit into your account.");
+                Console.WriteLine("\nPlease enter an amount to deposit into your account.");
 
                 if (decimal.TryParse(Console.ReadLine(), out amount))
                 {
                     balance += amount;
-                    Console.WriteLine("You deposited $" + amount + " Your balance is now $" + balance);
+                    Console.WriteLine("\nYou deposited $" + amount + ". Your balance is now $" + balance + ".\n");
                 }
                 else
                 {
@@ -167,10 +168,12 @@ namespace assessment2_store_
             {
                 Console.WriteLine("****************************************\n");
                 Console.WriteLine("\t Select a category to view:\n");
-                Console.WriteLine("\t [1] Cat1");
-                Console.WriteLine("\t [2] Cat2");
-                Console.WriteLine("\t [3] Cat3");
-                Console.WriteLine("\t [4] Exit to Main Menu\n");
+                Console.WriteLine("\t [1] View CPU Options");
+                Console.WriteLine("\t [2] View GPU Options");
+                Console.WriteLine("\t [3] View RAM Options");
+                Console.WriteLine("\t [4] View Motherboard Options");
+                Console.WriteLine("\t [5] View Case Options");
+                Console.WriteLine("\t [6] Exit to Main Menu\n");
                 Console.WriteLine("****************************************\n");
                 Console.WriteLine("Please choose an option ([1], [2], [3], [4])");
 
@@ -187,41 +190,104 @@ namespace assessment2_store_
         {
             if(userOption == "1")
             {
-                CatergoryOne();
+                CategoryOne();
             }
             if(userOption == "2")
             {
-                CatergoryTwo();
+                CategoryTwo();
             }
             if(userOption == "3")
             {
-                CatergoryThree();
+                CategoryThree();
             }
             if(userOption == "4")
+            {
+                CategoryFour();
+            }
+            if (userOption == "5")
+            {
+                CategoryFive();
+            }
+            if (userOption == "6")
             {
                 MainMenu();
             }
 
         }//end storeMenu
 
-        static void CatergoryOne()
+        static void CategoryOne()
         {
+            Console.WriteLine("****************************************\n");
+            Console.WriteLine("\t Select an item to view:\n");
+            Console.WriteLine("\t [1] Ryzen 5 5600x");
+            Console.WriteLine("\t [2] Ryzen 7 5700x");
+            Console.WriteLine("\t [3] Ryzen 9 5900x");
+            Console.WriteLine("\t [4] Intel i5-12400F");
+            Console.WriteLine("\t [5] Intel i7-12700K");
+            Console.WriteLine("\t [6] Exit to Catergory Selection\n");
+            Console.WriteLine("****************************************\n");
 
-        }//end catONE
+        }//end catONE CPU
 
-        static void CatergoryTwo()
+        static void CategoryTwo()
         {
+            Console.WriteLine("****************************************\n");
+            Console.WriteLine("\t Select an item to view:\n");
+            Console.WriteLine("\t [1] Gigabyte GeForce RTX 3060");
+            Console.WriteLine("\t [2] EVGA GeForce RTX 3070 Ti");
+            Console.WriteLine("\t [3] EVGA GeForce RTX 3080");
+            Console.WriteLine("\t [4] Powercolor Hellhound RX6700 XT");
+            Console.WriteLine("\t [5] Powercolor Red Devil RX 6900 XT");
+            Console.WriteLine("\t [6] Exit to Catergory Selection\n");
+            Console.WriteLine("****************************************\n");
 
-        }//end catTWO
+        }//end catTWO GPU
 
-        static void CatergoryThree()
+        static void CategoryThree()
         {
+            Console.WriteLine("****************************************\n");
+            Console.WriteLine("\t Select an item to view:\n");
+            Console.WriteLine("\t [1] G.SKILL Ripjaws V Series 16GB");
+            Console.WriteLine("\t [2] G.SKILL Ripjaws V Series 32GB");
+            Console.WriteLine("\t [3] Corsair Vengeance RGB 16GB");
+            Console.WriteLine("\t [4] Kingston FURY Beast 16GB");
+            Console.WriteLine("\t [5] Crucial 16GB");
+            Console.WriteLine("\t [6] Exit to Catergory Selection\n");
+            Console.WriteLine("****************************************\n");
 
-        }//end catTHREE
+        }//end catTHREE RAM
+
+        static void CategoryFour()
+        {
+            Console.WriteLine("****************************************\n");
+            Console.WriteLine("\t Select an item to view:\n");
+            Console.WriteLine("\t [1] Gigabyte B550M mATX");
+            Console.WriteLine("\t [2] ASUS ROG STRIX B550-A Gaming ATX");
+            Console.WriteLine("\t [3] MSI MAG B550M PRO mATX");
+            Console.WriteLine("\t [4] ASUS PRIME B660-PLUS ATX");
+            Console.WriteLine("\t [5] MSI B560M PRO-E mATX");
+            Console.WriteLine("\t [6] Exit to Catergory Selection\n");
+            Console.WriteLine("****************************************\n");
+
+        }//end catFOUR MOTHERBOARDS
+
+        static void CategoryFive()
+        {
+            Console.WriteLine("****************************************\n");
+            Console.WriteLine("\t Select an item to view:\n");
+            Console.WriteLine("\t [1] DEEPCOOL MATREXX 55 (Black)");
+            Console.WriteLine("\t [2] Phanteks Eclipse P360A (White)");
+            Console.WriteLine("\t [3] Corsair 400D Airflow (Black)");
+            Console.WriteLine("\t [4] Lian Li Lancool 215 (Black)");
+            Console.WriteLine("\t [5] NZXT H511 Compact (Matte White)");
+            Console.WriteLine("\t [6] Exit to Catergory Selection\n");
+            Console.WriteLine("****************************************\n");
+
+        }//end catFIVE CASES
 
         static void Main(string[] args)
         {
-            CheckPin();
+            StartCheckPin();
         }
     }
 }
