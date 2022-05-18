@@ -12,7 +12,8 @@ namespace assessment2_store_
         public static string[] menuOptions = { "1", "2", "3", "4", "5", "6" };
         public static decimal balance = 0;
         public static string userOption = "";
-
+        public static string userOptionStore = "";
+        public static string userOptionItem = "";
         private static void StartCheckPin()
         {
             Console.WriteLine("Welcome to the Computer Store account maker. Please enter your name to begin the account making process.");
@@ -108,7 +109,8 @@ namespace assessment2_store_
 
             if (userOption == "1")
             {
-                Console.WriteLine("\nYour balance is " + "$" + balance + ".\n");
+                Console.WriteLine("\nYour balance is " + "$" + balance + ". Press enter to go back to the Main Menu.\n");
+                Console.ReadKey();
                 if (balance <= 0)
                 {
                     Console.WriteLine("\nYou need to deposit some money.\n");
@@ -122,7 +124,8 @@ namespace assessment2_store_
                 if (decimal.TryParse(Console.ReadLine(), out amount))
                 {
                     balance += amount;
-                    Console.WriteLine("\nYou deposited $" + amount + ". Your balance is now $" + balance + ".\n");
+                    Console.WriteLine("\nYou deposited $" + amount + ". Your balance is now $" + balance + ". Press enter to go back to the Main Menu.\n");
+                    Console.ReadKey();
                 }
                 else
                 {
@@ -184,7 +187,7 @@ namespace assessment2_store_
                     Console.WriteLine("Your input " + userInput + " is not valid\n\n");
                 }
 
-                userOption = userInput;
+                userOptionStore = userInput;
                 storeMenu();
 
 
@@ -194,27 +197,27 @@ namespace assessment2_store_
 
         public static void storeMenu()
         {
-            if (userOption == "1")
+            if (userOptionStore == "1")
             {
                 CategoryOne();
             }
-            if (userOption == "2")
+            if (userOptionStore == "2")
             {
                 CategoryTwo();
             }
-            if (userOption == "3")
+            if (userOptionStore == "3")
             {
                 CategoryThree();
             }
-            if (userOption == "4")
+            if (userOptionStore == "4")
             {
                 CategoryFour();
             }
-            if (userOption == "5")
+            if (userOptionStore == "5")
             {
                 CategoryFive();
             }
-            if (userOption == "6")
+            if (userOptionStore == "6")
             {
                 MainMenu();
             }
@@ -328,13 +331,184 @@ namespace assessment2_store_
                     Console.WriteLine("Your input " + userInput + " is not valid\n\n");
                 }
 
-                userOption = userInput;
+                userOptionItem = userInput;
                 processItems();
             }
         }//end item check input
 
         public static void processItems()
         {
+            if(userOptionStore == "1")
+            {
+                if(userOptionItem == "1")
+                {
+                    Console.WriteLine("\nRyzen 5 5600x for $385");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-6 Cores, 12 Threads\n-Up to 4.6GHz clock speed\n-Socket AM4");
+                }
+                if (userOptionItem == "2")
+                {
+                    Console.WriteLine("\n[2] Ryzen 7 5700x for $470");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-8 Cores, 16 Threads\n-Up to 4.6GHz clock speed\n-Socket AM4");
+                }
+                if (userOptionItem == "3")
+                {
+                    Console.WriteLine("\n[3] Ryzen 9 5900x for $650");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-12 Cores, 24 Threads\n-Up to 4.8GHz\n-Socket AM4");
+                }
+                if (userOptionItem == "4")
+                {
+                    Console.WriteLine("\nIntel i5-12400F for $290");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-6 Cores, 12 Threads\n-Up to 4.4GHz clock speed\n-Socket LGA1700");
+                }
+                if (userOptionItem == "5")
+                {
+                    Console.WriteLine("\nIntel i7-12700K for $660");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-12 Cores, 20 Threads\n-Up to 5.0GHz clock speed\n-Socket LGA1700");
+                }
+            }
+            if (userOptionStore == "2")
+            {
+                if (userOptionItem == "1")
+                {
+                    Console.WriteLine("\nGigabyte GeForce RTX 3060 for $750");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-12 GB GDDR6 Memory\n-1837MHz maximum clock speed\n-Maximum four displays");
+                }
+                if (userOptionItem == "2")
+                {
+                    Console.WriteLine("\nEVGA GeForce RTX 3070 Ti for $1300");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-8 GB GDDR6x Memory\n-1860MHz maximum clock speed\n-Maximum four displays");
+                }
+                if (userOptionItem == "3")
+                {
+                    Console.WriteLine("\nEVGA GeForce RTX 3080 $1500");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-10 GB GDDR6x Memory\n-1800MHz maximum clock speed\n-Maximum four displays");
+                }
+                if (userOptionItem == "4")
+                {
+                    Console.WriteLine("\nPowercolor Hellhound RX6700 XT for $900");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-12 GB GDDR6 Memory\n-2581MHz maximum clock speed\n-Maximum four displays");
+                }
+                if (userOptionItem == "5")
+                {
+                    Console.WriteLine("\nPowercolor Red Devil RX 6900 XT $1800");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-16 GB GDDR6 Memory\n-2340MHz maximum clock speed\n-Maximum four displays");
+                }
+            }
+            if (userOptionStore == "3")
+            {
+                if (userOptionItem == "1")
+                {
+                    Console.WriteLine("\nG.SKILL Ripjaws V Series 16GB for $135");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("2x8GB DIMMS\n-DDR4\n-3200MHz speed");
+                }
+                if (userOptionItem == "2")
+                {
+                    Console.WriteLine("\nG.SKILL Ripjaws V Series 32GB $260");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("2x16GB DIMMS\n-DDR4\n-3600MHz speed");
+                }
+                if (userOptionItem == "3")
+                {
+                    Console.WriteLine("\nCorsair Vengeance RGB 16GB for $140");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("2x8GB DIMMS\n-DDR4\n-3600MHz speed");
+                }
+                if (userOptionItem == "4")
+                {
+                    Console.WriteLine("\nKingston FURY Beast 16GB for $140");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("2x8GB DIMMS\n-DDR4\n-3200MHz speed");
+                }
+                if (userOptionItem == "5")
+                {
+                    Console.WriteLine("\nCrucial 16GB for $100");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("1x16GB DIMM\n-DDR4\n-2660MHz speed\n-Unbuffed");
+                }
+            }
+            if (userOptionStore == "4")
+            {
+                if (userOptionItem == "1")
+                {
+                    Console.WriteLine("\nGigabyte B550M mATX for $200");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-mATX Form Factor\n-Socket AM4 Compatible\n-4x DDR4 DIMM Sockets\n-Bluetooth 4.2 + WiFi\n-8x USB back IO\n-2x 12V RGB Headers, 2x 5V A-RGB Headers, 2x PCIe x16");
+                }
+                if (userOptionItem == "2")
+                {
+                    Console.WriteLine("\nASUS ROG STRIX B550-A Gaming ATX for $280");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-ATX Form Factor\n-Socket AM4 Compatible\n-4x DDR4 DIMM Sockets\n-7x USB back IO\n-2x 12V RGB Headers, 1x 5V A-RGB Headers, 2x PCIe x16 Crossfire Compatible");
+                }
+                if (userOptionItem == "3")
+                {
+                    Console.WriteLine("\nMSI MAG B550M PRO mATX for $205");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-mATX Form Factor\n-Socket AM4 Compatible\n-4x DDR4 DIMM Sockets\n-Bluetooth + WiFi\n-6x USB back IO\n-2x 12V RGB Headers, 1x PCIe x16");
+                }
+                if (userOptionItem == "4")
+                {
+                    Console.WriteLine("\nASUS PRIME B660-PLUS ATX for $280");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-ATX Form Factor\n-Socket LGA1700 Compatible\n-4x DDR4 DIMM Sockets\n-5x USB, 1x USB-C back IO\n-2x 12V RGB Headers, 3x 5V A-RGB Headers, 2x PCIe x16");
+                }
+                if (userOptionItem == "5")
+                {
+                    Console.WriteLine("\nMSI B560M PRO-E mATX for $140");
+                    Console.WriteLine("-mATX Form Factor\n-Socket LGA1200 Compatible\n-2x DDR4 DIMM Sockets\n-6x USB back IO\n-1x PCIe x16");
+                }
+            }
+            if (userOptionStore == "5")
+            {
+                if (userOptionItem == "1")
+                {
+                    Console.WriteLine("\nDEEPCOOL MATREXX 55 (Black) for $130");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-Mid Tower\n-Maximum GPU Card Length: 370mm\n-360mm Radiator support\n-4x 2.5 drive bays, 2x 2.5/3.5 drive bays\n-3x Front USB\n-4x Addressable Fans");
+                }
+                if (userOptionItem == "2")
+                {
+                    Console.WriteLine("\nPhanteks Eclipse P360A (White) for $150");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-Mid Tower\n-Maximum GPU Card Length: 400mm\n-280mm Radiator support\n-3x 2.5 drive bays, 2x 2.5/3.5 drive bays\n-2x Front USB\n-2x 120mm D-RGB Front Fans");
+                }
+                if (userOptionItem == "3")
+                {
+                    Console.WriteLine("\nCorsair 4000D Airflow (Black) for $155");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-Mid Tower\n-Maximum GPU Card Length: 360mm\n-360mm Radiator support\n-2x 2.5 drive bays, 2x 2.5/3.5 drive bays\n-1x Front USB, 1x Front USB-C");
+                }
+                if (userOptionItem == "4")
+                {
+                    Console.WriteLine("\nLian Li Lancool 215 (Black) for $130");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-Mid Tower\n-Maximum GPU Card Length: 370mm\n-360mm Radiator support\n-2x 2.5 drive bays, 2x 2.5/3.5 drive bays\n-2x Front USB");
+                }
+                if (userOptionItem == "5")
+                {
+                    Console.WriteLine("\nNZXT H511 Compact (Matte White) for $150");
+                    Console.WriteLine("Specifications:");
+                    Console.WriteLine("-Mid Tower\n-Maximum GPU Card Length: 381mm\n-360mm Radiator support\n-3x 2.5 drive bays, 6x 2.5/3.5 drive bays\n-2x Front USB 3.0");
+                }
+            }
+            if ((userOptionStore == "1") && (userOptionStore == "2") && (userOptionStore == "3") && (userOptionStore == "4") && (userOptionStore == "5"))
+            {
+                if(userOptionItem == "6")
+                {
+                    option3();
+                }
+            }
 
         }//end process items
 
