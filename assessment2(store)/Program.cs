@@ -15,6 +15,7 @@ namespace assessment2_store_
         //user balance automatically set to 0, to be filled when called
         public static decimal balance = 0;
 
+        //allowed user input options for purchasing options
         public static string[] buyChoice = { "y", "n" };
 
         //strings for user input
@@ -386,6 +387,7 @@ namespace assessment2_store_
 
                     //gives option to buy or not to buy
                     Console.WriteLine("\nDo you wish to purchase this item for $385?");
+                    //check their input to make sure they only put y or n
                     CheckInputBuy();
                     //sets the required purchase price
                     purchase = 385;
@@ -739,9 +741,9 @@ namespace assessment2_store_
             }
         }
 
-
         static void Main(string[] args)
         {
+            //call the function that starts it all
             StartCheckPin();
         }//end
     }
