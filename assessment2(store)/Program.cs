@@ -104,7 +104,7 @@ namespace assessment2_store_
                 else
                 {
                     //tell them their input is wrong
-                    Console.WriteLine("Your input " + userInput + " is not valid\n\n");
+                    Console.WriteLine("Your input " + userInput + " is not valid");
                 }
 
                 userOption = userInput;
@@ -208,7 +208,7 @@ namespace assessment2_store_
                 }
                 else
                 {
-                    Console.WriteLine("Your input " + userInput + " is not valid\n\n");
+                    Console.WriteLine("Your input " + userInput + " is not valid");
                 }
 
                 userOptionStore = userInput;
@@ -357,7 +357,7 @@ namespace assessment2_store_
                 }
                 else
                 {
-                    Console.WriteLine("Your input " + userInput + " is not valid\n\n");
+                    Console.WriteLine("Your input " + userInput + " is not valid");
                 }
 
                 userOptionItem = userInput;
@@ -373,24 +373,30 @@ namespace assessment2_store_
                 {
                     Console.WriteLine("\nRyzen 5 5600x for $385");
                     Console.WriteLine("Specifications:");
+                    //give production information
                     Console.WriteLine("-6 Cores, 12 Threads\n-Up to 4.6GHz clock speed\n-Socket AM4");
 
+                    //gives option to buy or not to buy
                     Console.WriteLine("\nDo you wish to purchase this item for $385?");
                     CheckInputBuy();
                     if (choice == "y")
                     {
+                        //creates variable for purchase amount (preset)
                         decimal purchase = 385;
+                        //subtracts purchase from original balance and saves new number to the balance variable
                         balance = Decimal.Subtract(balance, purchase);
                         if (balance > 385)
                         {
                             Console.WriteLine("\nYou have purchased this item.");
+                            //shows new balance
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
                         if (balance == 0 || balance < 385)
                         {
+                            //if funds arent sufficient, redirect to category selection
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
                             Console.ReadLine();
@@ -399,6 +405,7 @@ namespace assessment2_store_
                     }
                     if (choice == "n")
                     {
+                        //redirects to category selection
                         Console.WriteLine("Press enter to go back to the Category Select Menu.");
                         Console.ReadLine();
                         option3();
@@ -420,7 +427,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -455,7 +462,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -490,7 +497,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -525,7 +532,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -563,7 +570,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -598,7 +605,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -633,7 +640,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -668,7 +675,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -703,7 +710,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -729,7 +736,7 @@ namespace assessment2_store_
                 {
                     Console.WriteLine("\nG.SKILL Ripjaws V Series 16GB for $135");
                     Console.WriteLine("Specifications:");
-                    Console.WriteLine("2x8GB DIMMS\n-DDR4\n-3200MHz speed");
+                    Console.WriteLine("-2x8GB DIMMS\n-DDR4\n-3200MHz speed");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $135?");
                     CheckInputBuy();
@@ -741,7 +748,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -764,7 +771,7 @@ namespace assessment2_store_
                 {
                     Console.WriteLine("\nG.SKILL Ripjaws V Series 32GB $260");
                     Console.WriteLine("Specifications:");
-                    Console.WriteLine("2x16GB DIMMS\n-DDR4\n-3600MHz speed");
+                    Console.WriteLine("-2x16GB DIMMS\n-DDR4\n-3600MHz speed");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $260?");
                     CheckInputBuy();
@@ -776,7 +783,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -799,7 +806,7 @@ namespace assessment2_store_
                 {
                     Console.WriteLine("\nCorsair Vengeance RGB 16GB for $140");
                     Console.WriteLine("Specifications:");
-                    Console.WriteLine("2x8GB DIMMS\n-DDR4\n-3600MHz speed");
+                    Console.WriteLine("-2x8GB DIMMS\n-DDR4\n-3600MHz speed");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $140?");
                     CheckInputBuy();
@@ -811,7 +818,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -834,7 +841,7 @@ namespace assessment2_store_
                 {
                     Console.WriteLine("\nKingston FURY Beast 16GB for $140");
                     Console.WriteLine("Specifications:");
-                    Console.WriteLine("2x8GB DIMMS\n-DDR4\n-3200MHz speed");
+                    Console.WriteLine("-2x8GB DIMMS\n-DDR4\n-3200MHz speed");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $140?");
                     CheckInputBuy();
@@ -846,7 +853,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -869,7 +876,7 @@ namespace assessment2_store_
                 {
                     Console.WriteLine("\nCrucial 16GB for $100");
                     Console.WriteLine("Specifications:");
-                    Console.WriteLine("1x16GB DIMM\n-DDR4\n-2660MHz speed\n-Unbuffed");
+                    Console.WriteLine("-1x16GB DIMM\n-DDR4\n-2660MHz speed\n-Unbuffed");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $100?");
                     CheckInputBuy();
@@ -881,7 +888,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -919,7 +926,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -954,7 +961,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -989,7 +996,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -1024,7 +1031,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -1059,7 +1066,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -1097,7 +1104,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -1132,7 +1139,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -1167,7 +1174,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -1202,7 +1209,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -1237,7 +1244,7 @@ namespace assessment2_store_
                         {
                             Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu");
+                            Console.WriteLine("Press enter to return to main menu.\n");
                             Console.ReadKey();
                             MainMenu();
                         }
@@ -1289,7 +1296,7 @@ namespace assessment2_store_
                 }
                 else
                 {
-                    Console.WriteLine("Your input " + userInput + " is not valid\n");
+                    Console.WriteLine("Your input " + userInput + " is not valid");
                 }
             }
         }//end item check input
