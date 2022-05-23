@@ -8,14 +8,24 @@ namespace assessment2_store_
 {
     internal class Program
     {
-        //our allow user input options
+        //global Variables
+        //allowed user input options for menus
         public static string[] menuOptions = { "1", "2", "3", "4", "5", "6" };
+
+        //user balance automatically set to 0
         public static decimal balance = 0;
+
+        public static string[] buyChoice = { "y", "n" };
+
+        //strings for user input
         public static string userOption = "";
         public static string userOptionStore = "";
         public static string userOptionItem = "";
+        public static string choice = "";
+
         private static void StartCheckPin()
         {
+            //beginning of code store
             Console.WriteLine("Welcome to the Computer Store account maker. Please enter your name to begin the account making process.");
             string name = Console.ReadLine();
             Console.WriteLine("\nGreat, thanks " + name + ". Now, please enter a pin or password. It can be any length.");
@@ -49,6 +59,7 @@ namespace assessment2_store_
 
         static void MainMenu()
         {
+            //code for main menu
             Console.WriteLine("****************************************\n");
             Console.WriteLine("\t Welcome to The Computer Store.\n");
             Console.WriteLine("\t Select an Option:\n");
@@ -88,10 +99,11 @@ namespace assessment2_store_
 
                 if (check)
                 {
-
+                    //do nothing
                 }
                 else
                 {
+                    //tell them their input is wrong
                     Console.WriteLine("Your input " + userInput + " is not valid\n\n");
                 }
 
@@ -111,12 +123,14 @@ namespace assessment2_store_
             {
                 if (balance <= 0)
                 {
+                    //tell them that they have no money, redirect to main menu
                     Console.WriteLine("\nYou need to deposit some money. Press enter to go back to the Main Menu.\n");
                     Console.ReadKey();
                     MainMenu();
                 }
                 if (balance > 0)
                 {
+                    //show current balance, redirect to main menu
                     Console.WriteLine("\nYour balance is " + "$" + balance + ". Press enter to go back to the Main Menu.\n");
                     Console.ReadKey();
                     MainMenu();
@@ -128,28 +142,33 @@ namespace assessment2_store_
 
                 if (decimal.TryParse(Console.ReadLine(), out amount))
                 {
+                    //deposit the amount of money that the user selects, redirect to main menu
                     balance += amount;
                     Console.WriteLine("\nYou deposited $" + amount + ". Your balance is now $" + balance + ". Press enter to go back to the Main Menu.\n");
                     Console.ReadKey();
                 }
                 else
                 {
+                    //tell user the amount was invalid
                     Console.WriteLine("Invalid Amount.");
                 }
                 MainMenu();
             }
             if (userOption == "3")
             {
+                //call function for category menu
                 option3();
             }
             if (userOption == "4")
             {
+                //exit
                 Environment.Exit(0);
             }
         } // end ProcessMenu
 
         public static void option3()
         {
+            //category menu view
             Console.WriteLine("\n****************************************\n");
             Console.WriteLine("\t Select a category to view:\n");
             Console.WriteLine("\t [1] View CPU Options");
@@ -161,6 +180,7 @@ namespace assessment2_store_
             Console.WriteLine("****************************************\n");
             Console.WriteLine("Please choose an option ([1], [2], [3], [4], [5], [6])");
 
+            //call check input for category select
             CheckInputStore();
         }
 
@@ -356,17 +376,20 @@ namespace assessment2_store_
                     Console.WriteLine("-6 Cores, 12 Threads\n-Up to 4.6GHz clock speed\n-Socket AM4");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $385?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 385;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 385)
                         {
-                            decimal purchase = 385;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 385)
+                        if (balance == 0 || balance < 385)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -388,17 +411,20 @@ namespace assessment2_store_
                     Console.WriteLine("-8 Cores, 16 Threads\n-Up to 4.6GHz clock speed\n-Socket AM4");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $470?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 470;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 470)
                         {
-                            decimal purchase = 470;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 470)
+                        if (balance == 0 || balance < 470)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -420,17 +446,20 @@ namespace assessment2_store_
                     Console.WriteLine("-12 Cores, 24 Threads\n-Up to 4.8GHz\n-Socket AM4");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $650?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 650;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 650)
                         {
-                            decimal purchase = 650;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 650)
+                        if (balance == 0 || balance < 650)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -452,17 +481,20 @@ namespace assessment2_store_
                     Console.WriteLine("-6 Cores, 12 Threads\n-Up to 4.4GHz clock speed\n-Socket LGA1700");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $290?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 290;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 290)
                         {
-                            decimal purchase = 290;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 290)
+                        if (balance == 0 || balance < 290)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -484,17 +516,20 @@ namespace assessment2_store_
                     Console.WriteLine("-12 Cores, 20 Threads\n-Up to 5.0GHz clock speed\n-Socket LGA1700");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $660?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 660;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 660)
                         {
-                            decimal purchase = 660;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 660)
+                        if (balance == 0 || balance < 660)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -519,17 +554,20 @@ namespace assessment2_store_
                     Console.WriteLine("-12 GB GDDR6 Memory\n-1837MHz maximum clock speed\n-Maximum four displays");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $750?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 750;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 750)
                         {
-                            decimal purchase = 750;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 750)
+                        if (balance == 0 || balance < 750)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -551,17 +589,20 @@ namespace assessment2_store_
                     Console.WriteLine("-8 GB GDDR6x Memory\n-1860MHz maximum clock speed\n-Maximum four displays");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $1300?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 1300;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 1300)
                         {
-                            decimal purchase = 1300;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 1300)
+                        if (balance == 0 || balance < 1300)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -583,17 +624,20 @@ namespace assessment2_store_
                     Console.WriteLine("-10 GB GDDR6x Memory\n-1800MHz maximum clock speed\n-Maximum four displays");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $1500?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 1500;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 1500)
                         {
-                            decimal purchase = 1500;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 1500)
+                        if (balance == 0 || balance < 1500)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -615,17 +659,20 @@ namespace assessment2_store_
                     Console.WriteLine("-12 GB GDDR6 Memory\n-2581MHz maximum clock speed\n-Maximum four displays");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $900?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 900;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 900)
                         {
-                            decimal purchase = 900;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 900)
+                        if (balance == 0 || balance < 900)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -647,17 +694,20 @@ namespace assessment2_store_
                     Console.WriteLine("-16 GB GDDR6 Memory\n-2340MHz maximum clock speed\n-Maximum four displays");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $1800?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 1800;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 1800)
                         {
-                            decimal purchase = 1800;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 1800)
+                        if (balance == 0 || balance < 1800)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -682,17 +732,20 @@ namespace assessment2_store_
                     Console.WriteLine("2x8GB DIMMS\n-DDR4\n-3200MHz speed");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $135?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 135;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 135)
                         {
-                            decimal purchase = 135;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 135)
+                        if (balance == 0 || balance < 135)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -714,17 +767,20 @@ namespace assessment2_store_
                     Console.WriteLine("2x16GB DIMMS\n-DDR4\n-3600MHz speed");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $260?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 260;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 260)
                         {
-                            decimal purchase = 260;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 260)
+                        if (balance == 0 || balance < 260)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -746,17 +802,20 @@ namespace assessment2_store_
                     Console.WriteLine("2x8GB DIMMS\n-DDR4\n-3600MHz speed");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $140?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 140;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 140)
                         {
-                            decimal purchase = 140;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 140)
+                        if (balance == 0 || balance < 140)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -778,17 +837,20 @@ namespace assessment2_store_
                     Console.WriteLine("2x8GB DIMMS\n-DDR4\n-3200MHz speed");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $140?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 140;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 140)
                         {
-                            decimal purchase = 140;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 140)
+                        if (balance == 0 || balance < 140)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -810,17 +872,20 @@ namespace assessment2_store_
                     Console.WriteLine("1x16GB DIMM\n-DDR4\n-2660MHz speed\n-Unbuffed");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $100?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 100;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 100)
                         {
-                            decimal purchase = 100;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 100)
+                        if (balance == 0 || balance < 100)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -845,17 +910,20 @@ namespace assessment2_store_
                     Console.WriteLine("-mATX Form Factor\n-Socket AM4 Compatible\n-4x DDR4 DIMM Sockets\n-Bluetooth 4.2 + WiFi\n-8x USB back IO\n-2x 12V RGB Headers, 2x 5V A-RGB Headers, 2x PCIe x16");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $200?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 200;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 200)
                         {
-                            decimal purchase = 200;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 200)
+                        if (balance == 0 || balance < 200)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -877,17 +945,20 @@ namespace assessment2_store_
                     Console.WriteLine("-ATX Form Factor\n-Socket AM4 Compatible\n-4x DDR4 DIMM Sockets\n-7x USB back IO\n-2x 12V RGB Headers, 1x 5V A-RGB Headers, 2x PCIe x16 Crossfire Compatible");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $280?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 280;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 280)
                         {
-                            decimal purchase = 280;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 280)
+                        if (balance == 0 || balance < 280)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -909,17 +980,20 @@ namespace assessment2_store_
                     Console.WriteLine("-mATX Form Factor\n-Socket AM4 Compatible\n-4x DDR4 DIMM Sockets\n-Bluetooth + WiFi\n-6x USB back IO\n-2x 12V RGB Headers, 1x PCIe x16");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $205?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 205;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 205)
                         {
-                            decimal purchase = 205;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 205)
+                        if (balance == 0 || balance < 205)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -941,17 +1015,20 @@ namespace assessment2_store_
                     Console.WriteLine("-ATX Form Factor\n-Socket LGA1700 Compatible\n-4x DDR4 DIMM Sockets\n-5x USB, 1x USB-C back IO\n-2x 12V RGB Headers, 3x 5V A-RGB Headers, 2x PCIe x16");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $280?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 280;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 280)
                         {
-                            decimal purchase = 280;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 280)
+                        if (balance == 0 || balance < 280)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -973,17 +1050,20 @@ namespace assessment2_store_
                     Console.WriteLine("-mATX Form Factor\n-Socket LGA1200 Compatible\n-2x DDR4 DIMM Sockets\n-6x USB back IO\n-1x PCIe x16");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $140?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 140;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 140)
                         {
-                            decimal purchase = 140;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 140)
+                        if (balance == 0 || balance < 140)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -1008,17 +1088,20 @@ namespace assessment2_store_
                     Console.WriteLine("-Mid Tower\n-Maximum GPU Card Length: 370mm\n-360mm Radiator support\n-4x 2.5 drive bays, 2x 2.5/3.5 drive bays\n-3x Front USB\n-4x Addressable Fans");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $130?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 130;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 130)
                         {
-                            decimal purchase = 130;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 130)
+                        if (balance == 0 || balance < 130)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -1040,17 +1123,20 @@ namespace assessment2_store_
                     Console.WriteLine("-Mid Tower\n-Maximum GPU Card Length: 400mm\n-280mm Radiator support\n-3x 2.5 drive bays, 2x 2.5/3.5 drive bays\n-2x Front USB\n-2x 120mm D-RGB Front Fans");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $150?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 150;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 150)
                         {
-                            decimal purchase = 150;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 150)
+                        if (balance == 0 || balance < 150)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -1072,17 +1158,20 @@ namespace assessment2_store_
                     Console.WriteLine("-Mid Tower\n-Maximum GPU Card Length: 360mm\n-360mm Radiator support\n-2x 2.5 drive bays, 2x 2.5/3.5 drive bays\n-1x Front USB, 1x Front USB-C");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $155?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 155;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 155)
                         {
-                            decimal purchase = 155;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 155)
+                        if (balance == 0 || balance < 155)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -1104,17 +1193,20 @@ namespace assessment2_store_
                     Console.WriteLine("-Mid Tower\n-Maximum GPU Card Length: 370mm\n-360mm Radiator support\n-2x 2.5 drive bays, 2x 2.5/3.5 drive bays\n-2x Front USB");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $130?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 130;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 130)
                         {
-                            decimal purchase = 130;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 130)
+                        if (balance == 0 || balance < 130)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -1136,17 +1228,20 @@ namespace assessment2_store_
                     Console.WriteLine("-Mid Tower\n-Maximum GPU Card Length: 381mm\n-360mm Radiator support\n-3x 2.5 drive bays, 6x 2.5/3.5 drive bays\n-2x Front USB 3.0");
 
                     Console.WriteLine("\nDo you wish to purchase this item for $150? y/n?");
-                    string choice = Console.ReadLine();
+                    CheckInputBuy();
                     if (choice == "y")
                     {
-                        if (balance > 0)
+                        decimal purchase = 150;
+                        balance = Decimal.Subtract(balance, purchase);
+                        if (balance > 150)
                         {
-                            decimal purchase = 150;
-                            balance = purchase;
-                            Console.WriteLine("You have purchased this item.");
+                            Console.WriteLine("\nYou have purchased this item.");
                             Console.WriteLine("Your balance is now $" + balance);
+                            Console.WriteLine("Press enter to return to main menu");
+                            Console.ReadKey();
+                            MainMenu();
                         }
-                        if (balance <= 0 || balance <= 150)
+                        if (balance == 0 || balance < 150)
                         {
                             Console.WriteLine("\nYou do not have the sufficient funds.");
                             Console.WriteLine("Press enter to go back to the Category Select Menu");
@@ -1169,10 +1264,40 @@ namespace assessment2_store_
 
         }//end process items
 
+        public static void CheckInputBuy()
+        {
+            bool check = false;
+
+            while (check == false)
+            {
+                string userInput = Console.ReadLine();
+                foreach (string temp in buyChoice)
+                {
+                    check = userInput.Equals(temp);
+
+                    if (check)
+                    {
+                        choice = userInput;
+                        break;
+                    }
+
+                } // end of foreach
+
+                if (check)
+                {
+
+                }
+                else
+                {
+                    Console.WriteLine("Your input " + userInput + " is not valid\n");
+                }
+            }
+        }//end item check input
+
 
         static void Main(string[] args)
         {
             StartCheckPin();
-        }//dont delete the main again, end
+        }//end
     }
 }
