@@ -262,7 +262,7 @@ namespace assessment2_store_
             Console.WriteLine("\t [3] Ryzen 9 5900x");
             Console.WriteLine("\t [4] Intel i5-12400F");
             Console.WriteLine("\t [5] Intel i7-12700K");
-            Console.WriteLine("\t [6] Exit to Catergory Selection\n");
+            Console.WriteLine("\t [6] Exit to Category Selection\n");
             Console.WriteLine("****************************************\n");
             Console.WriteLine("Please choose an option ([1], [2], [3], [4], [5], [6])");
 
@@ -280,7 +280,7 @@ namespace assessment2_store_
             Console.WriteLine("\t [3] EVGA GeForce RTX 3080");
             Console.WriteLine("\t [4] Powercolor Hellhound RX6700 XT");
             Console.WriteLine("\t [5] Powercolor Red Devil RX 6900 XT");
-            Console.WriteLine("\t [6] Exit to Catergory Selection\n");
+            Console.WriteLine("\t [6] Exit to Category Selection\n");
             Console.WriteLine("****************************************\n");
             Console.WriteLine("Please choose an option ([1], [2], [3], [4], [5], [6])");
 
@@ -298,7 +298,7 @@ namespace assessment2_store_
             Console.WriteLine("\t [3] Corsair Vengeance RGB 16GB");
             Console.WriteLine("\t [4] Kingston FURY Beast 16GB");
             Console.WriteLine("\t [5] Crucial 16GB");
-            Console.WriteLine("\t [6] Exit to Catergory Selection\n");
+            Console.WriteLine("\t [6] Exit to Category Selection\n");
             Console.WriteLine("****************************************\n");
             Console.WriteLine("Please choose an option ([1], [2], [3], [4], [5], [6])");
 
@@ -316,7 +316,7 @@ namespace assessment2_store_
             Console.WriteLine("\t [3] MSI MAG B550M PRO mATX");
             Console.WriteLine("\t [4] ASUS PRIME B660-PLUS ATX");
             Console.WriteLine("\t [5] MSI B560M PRO-E mATX");
-            Console.WriteLine("\t [6] Exit to Catergory Selection\n");
+            Console.WriteLine("\t [6] Exit to Category Selection\n");
             Console.WriteLine("****************************************\n");
             Console.WriteLine("Please choose an option ([1], [2], [3], [4], [5], [6])");
 
@@ -334,7 +334,7 @@ namespace assessment2_store_
             Console.WriteLine("\t [3] Corsair 4000D Airflow (Black)");
             Console.WriteLine("\t [4] Lian Li Lancool 215 (Black)");
             Console.WriteLine("\t [5] NZXT H511 Compact (Matte White)");
-            Console.WriteLine("\t [6] Exit to Catergory Selection\n");
+            Console.WriteLine("\t [6] Exit to Category Selection\n");
             Console.WriteLine("****************************************\n");
             Console.WriteLine("Please choose an option ([1], [2], [3], [4], [5], [6])");
 
