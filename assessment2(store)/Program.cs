@@ -12,7 +12,7 @@ namespace assessment2_store_
         //allowed user input options for menus
         public static string[] menuOptions = { "1", "2", "3", "4", "5", "6" };
 
-        //user balance automatically set to 0
+        //user balance automatically set to 0, to be filled when called
         public static decimal balance = 0;
 
         public static string[] buyChoice = { "y", "n" };
@@ -22,6 +22,9 @@ namespace assessment2_store_
         public static string userOptionStore = "";
         public static string userOptionItem = "";
         public static string choice = "";
+
+        //decimal set to 0 by default, to be filled when called
+        public static decimal purchase = 0;
 
         private static void StartCheckPin()
         {
@@ -52,7 +55,7 @@ namespace assessment2_store_
                 }
             }
 
-            Console.WriteLine("\nPin correct.\n");
+            Console.WriteLine("\nAccess Granted.\n");
             MainMenu();
 
         } //end CheckPin
@@ -250,6 +253,7 @@ namespace assessment2_store_
 
         static void CategoryOne()
         {
+            //cpu view
             Console.WriteLine("\n****************************************\n");
             Console.WriteLine("\t Select an item to view:\n");
             Console.WriteLine("\t [1] Ryzen 5 5600x");
@@ -267,6 +271,7 @@ namespace assessment2_store_
 
         static void CategoryTwo()
         {
+            //gpu view
             Console.WriteLine("\n****************************************\n");
             Console.WriteLine("\t Select an item to view:\n");
             Console.WriteLine("\t [1] Gigabyte GeForce RTX 3060");
@@ -284,6 +289,7 @@ namespace assessment2_store_
 
         static void CategoryThree()
         {
+            //ram view
             Console.WriteLine("\n****************************************\n");
             Console.WriteLine("\t Select an item to view:\n");
             Console.WriteLine("\t [1] G.SKILL Ripjaws V Series 16GB");
@@ -301,6 +307,7 @@ namespace assessment2_store_
 
         static void CategoryFour()
         {
+            //motherboard view
             Console.WriteLine("\n****************************************\n");
             Console.WriteLine("\t Select an item to view:\n");
             Console.WriteLine("\t [1] Gigabyte B550M mATX");
@@ -318,6 +325,7 @@ namespace assessment2_store_
 
         static void CategoryFive()
         {
+            //case view
             Console.WriteLine("\n****************************************\n");
             Console.WriteLine("\t Select an item to view:\n");
             Console.WriteLine("\t [1] DEEPCOOL MATREXX 55 (Black)");
@@ -379,37 +387,9 @@ namespace assessment2_store_
                     //gives option to buy or not to buy
                     Console.WriteLine("\nDo you wish to purchase this item for $385?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        //creates variable for purchase amount (preset)
-                        decimal purchase = 385;
-                        //subtracts purchase from original balance and saves new number to the balance variable
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 385)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            //shows new balance
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 385)
-                        {
-                            //if funds arent sufficient, redirect to category selection
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        //redirects to category selection
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    //sets the required purchase price
+                    purchase = 385;
+                    buyItem();
                 }
                 if (userOptionItem == "2")
                 {
@@ -419,32 +399,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $470?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 470;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 470)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 470)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 470;
+                    buyItem();
                 }
                 if (userOptionItem == "3")
                 {
@@ -454,32 +410,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $650?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 650;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 650)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 650)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 650;
+                    buyItem();
                 }
                 if (userOptionItem == "4")
                 {
@@ -489,32 +421,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $290?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 290;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 290)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 290)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 290;
+                    buyItem();
                 }
                 if (userOptionItem == "5")
                 {
@@ -524,32 +432,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $660?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 660;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 660)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 660)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 660;
+                    buyItem();
                 }
             }
             if (userOptionStore == "2")
@@ -562,32 +446,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $750?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 750;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 750)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 750)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 750;
+                    buyItem();
                 }
                 if (userOptionItem == "2")
                 {
@@ -597,32 +457,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $1300?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 1300;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 1300)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 1300)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 1300;
+                    buyItem();
                 }
                 if (userOptionItem == "3")
                 {
@@ -632,32 +468,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $1500?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 1500;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 1500)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 1500)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 1500;
+                    buyItem();
                 }
                 if (userOptionItem == "4")
                 {
@@ -667,32 +479,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $900?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 900;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 900)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 900)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 900;
+                    buyItem();
                 }
                 if (userOptionItem == "5")
                 {
@@ -702,32 +490,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $1800?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 1800;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 1800)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 1800)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 1800;
+                    buyItem();
                 }
             }
             if (userOptionStore == "3")
@@ -740,32 +504,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $135?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 135;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 135)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 135)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 135;
+                    buyItem();
                 }
                 if (userOptionItem == "2")
                 {
@@ -775,32 +515,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $260?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 260;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 260)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 260)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 260;
+                    buyItem();
                 }
                 if (userOptionItem == "3")
                 {
@@ -810,32 +526,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $140?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 140;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 140)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 140)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 140;
+                    buyItem();
                 }
                 if (userOptionItem == "4")
                 {
@@ -845,32 +537,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $140?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 140;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 140)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 140)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 140;
+                    buyItem();
                 }
                 if (userOptionItem == "5")
                 {
@@ -880,32 +548,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $100?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 100;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 100)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 100)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 100;
+                    buyItem();
                 }
             }
             if (userOptionStore == "4")
@@ -918,32 +562,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $200?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 200;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 200)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 200)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 200;
+                    buyItem();
                 }
                 if (userOptionItem == "2")
                 {
@@ -953,32 +573,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $280?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 280;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 280)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 280)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 280;
+                    buyItem();
                 }
                 if (userOptionItem == "3")
                 {
@@ -988,32 +584,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $205?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 205;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 205)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 205)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 205;
+                    buyItem();
                 }
                 if (userOptionItem == "4")
                 {
@@ -1023,32 +595,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $280?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 280;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 280)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 280)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 280;
+                    buyItem();
                 }
                 if (userOptionItem == "5")
                 {
@@ -1058,32 +606,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $140?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 140;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 140)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 140)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 140;
+                    buyItem();
                 }
             }
             if (userOptionStore == "5")
@@ -1096,32 +620,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $130?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 130;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 130)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 130)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 130;
+                    buyItem();
                 }
                 if (userOptionItem == "2")
                 {
@@ -1131,32 +631,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $150?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 150;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 150)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 150)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 150;
+                    buyItem();
                 }
                 if (userOptionItem == "3")
                 {
@@ -1166,32 +642,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $155?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 155;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 155)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 155)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 155;
+                    buyItem();
                 }
                 if (userOptionItem == "4")
                 {
@@ -1201,32 +653,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $130?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 130;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 130)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 130)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 130;
+                    buyItem();
                 }
                 if (userOptionItem == "5")
                 {
@@ -1236,32 +664,8 @@ namespace assessment2_store_
 
                     Console.WriteLine("\nDo you wish to purchase this item for $150? y/n?");
                     CheckInputBuy();
-                    if (choice == "y")
-                    {
-                        decimal purchase = 150;
-                        balance = Decimal.Subtract(balance, purchase);
-                        if (balance > 150)
-                        {
-                            Console.WriteLine("\nYou have purchased this item.");
-                            Console.WriteLine("Your balance is now $" + balance);
-                            Console.WriteLine("Press enter to return to main menu.\n");
-                            Console.ReadKey();
-                            MainMenu();
-                        }
-                        if (balance == 0 || balance < 150)
-                        {
-                            Console.WriteLine("\nYou do not have the sufficient funds.");
-                            Console.WriteLine("Press enter to go back to the Category Select Menu");
-                            Console.ReadLine();
-                            option3();
-                        }
-                    }
-                    if (choice == "n")
-                    {
-                        Console.WriteLine("Press enter to go back to the Category Select Menu.");
-                        Console.ReadLine();
-                        option3();
-                    }
+                    purchase = 150;
+                    buyItem();
                 }
             }
             if (userOptionItem == "6")
@@ -1300,6 +704,40 @@ namespace assessment2_store_
                 }
             }
         }//end item check input
+
+        public static void buyItem()
+        {
+            if (choice == "y")
+            {
+                //says balance is equal to the result of the original balance minus the price of the purchase the user made
+                balance = Decimal.Subtract(balance, purchase);
+                //if balance is greater than the required amount to purchase the item
+                if (balance > purchase)
+                {
+                    Console.WriteLine("\nYou have purchased this item.");
+                    //displays new balance after puchase, redirects to main menu
+                    Console.WriteLine("Your balance is now $" + balance);
+                    Console.WriteLine("Press enter to return to main menu.\n");
+                    Console.ReadKey();
+                    MainMenu();
+                }
+                //if balance is nothing or is less than the required amount to purchase the item
+                if (balance == 0 || balance < purchase)
+                {
+                    //tell them they cant afford it and redirect them back to the category selection screen
+                    Console.WriteLine("\nYou do not have the sufficient funds.");
+                    Console.WriteLine("Press enter to go back to the Category Select Menu");
+                    Console.ReadLine();
+                    option3();
+                }
+            }
+            if (choice == "n")
+            {
+                Console.WriteLine("Press enter to go back to the Category Select Menu.");
+                Console.ReadLine();
+                option3();
+            }
+        }
 
 
         static void Main(string[] args)
