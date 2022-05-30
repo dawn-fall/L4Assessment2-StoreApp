@@ -386,7 +386,7 @@ namespace assessment2_store_
                     Console.WriteLine("-6 Cores, 12 Threads\n-Up to 4.6GHz clock speed\n-Socket AM4");
 
                     //gives option to buy or not to buy
-                    Console.WriteLine("\nDo you wish to purchase this item for $385?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $385? y/n?");
                     //check their input to make sure they only put y or n
                     CheckInputBuy();
                     //sets the required purchase price
@@ -399,7 +399,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-8 Cores, 16 Threads\n-Up to 4.6GHz clock speed\n-Socket AM4");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $470?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $470? y/n?");
                     CheckInputBuy();
                     purchase = 470;
                     buyItem();
@@ -410,7 +410,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-12 Cores, 24 Threads\n-Up to 4.8GHz\n-Socket AM4");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $650?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $650? y/n?");
                     CheckInputBuy();
                     purchase = 650;
                     buyItem();
@@ -421,7 +421,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-6 Cores, 12 Threads\n-Up to 4.4GHz clock speed\n-Socket LGA1700");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $290?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $290? y/n?");
                     CheckInputBuy();
                     purchase = 290;
                     buyItem();
@@ -432,7 +432,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-12 Cores, 20 Threads\n-Up to 5.0GHz clock speed\n-Socket LGA1700");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $660?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $660? y/n?");
                     CheckInputBuy();
                     purchase = 660;
                     buyItem();
@@ -446,7 +446,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-12 GB GDDR6 Memory\n-1837MHz maximum clock speed\n-Maximum four displays");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $750?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $750? y/n?");
                     CheckInputBuy();
                     purchase = 750;
                     buyItem();
@@ -457,7 +457,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-8 GB GDDR6x Memory\n-1860MHz maximum clock speed\n-Maximum four displays");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $1300?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $1300? y/n?");
                     CheckInputBuy();
                     purchase = 1300;
                     buyItem();
@@ -468,7 +468,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-10 GB GDDR6x Memory\n-1800MHz maximum clock speed\n-Maximum four displays");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $1500?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $1500? y/n?");
                     CheckInputBuy();
                     purchase = 1500;
                     buyItem();
@@ -479,7 +479,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-12 GB GDDR6 Memory\n-2581MHz maximum clock speed\n-Maximum four displays");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $900?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $900? y/n?");
                     CheckInputBuy();
                     purchase = 900;
                     buyItem();
@@ -489,8 +489,8 @@ namespace assessment2_store_
                     Console.WriteLine("\nPowercolor Red Devil RX 6900 XT $1800");
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-16 GB GDDR6 Memory\n-2340MHz maximum clock speed\n-Maximum four displays");
-
-                    Console.WriteLine("\nDo you wish to purchase this item for $1800?");
+                   
+                    Console.WriteLine("\nDo you wish to purchase this item for $1800? y/n?");
                     CheckInputBuy();
                     purchase = 1800;
                     buyItem();
@@ -504,7 +504,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-2x8GB DIMMS\n-DDR4\n-3200MHz speed");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $135?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $135? y/n?");
                     CheckInputBuy();
                     purchase = 135;
                     buyItem();
@@ -515,7 +515,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-2x16GB DIMMS\n-DDR4\n-3600MHz speed");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $260?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $260? y/n?");
                     CheckInputBuy();
                     purchase = 260;
                     buyItem();
@@ -526,7 +526,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-2x8GB DIMMS\n-DDR4\n-3600MHz speed");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $140?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $140? y/n?");
                     CheckInputBuy();
                     purchase = 140;
                     buyItem();
@@ -537,7 +537,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-2x8GB DIMMS\n-DDR4\n-3200MHz speed");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $140?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $140? y/n?");
                     CheckInputBuy();
                     purchase = 140;
                     buyItem();
@@ -548,7 +548,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-1x16GB DIMM\n-DDR4\n-2660MHz speed\n-Unbuffed");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $100?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $100? y/n?");
                     CheckInputBuy();
                     purchase = 100;
                     buyItem();
@@ -562,7 +562,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-mATX Form Factor\n-Socket AM4 Compatible\n-4x DDR4 DIMM Sockets\n-Bluetooth 4.2 + WiFi\n-8x USB back IO\n-2x 12V RGB Headers, 2x 5V A-RGB Headers, 2x PCIe x16");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $200?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $200? y/n?");
                     CheckInputBuy();
                     purchase = 200;
                     buyItem();
@@ -573,7 +573,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-ATX Form Factor\n-Socket AM4 Compatible\n-4x DDR4 DIMM Sockets\n-7x USB back IO\n-2x 12V RGB Headers, 1x 5V A-RGB Headers, 2x PCIe x16 Crossfire Compatible");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $280?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $280? y/n?");
                     CheckInputBuy();
                     purchase = 280;
                     buyItem();
@@ -584,7 +584,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-mATX Form Factor\n-Socket AM4 Compatible\n-4x DDR4 DIMM Sockets\n-Bluetooth + WiFi\n-6x USB back IO\n-2x 12V RGB Headers, 1x PCIe x16");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $205?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $205? y/n?");
                     CheckInputBuy();
                     purchase = 205;
                     buyItem();
@@ -595,7 +595,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-ATX Form Factor\n-Socket LGA1700 Compatible\n-4x DDR4 DIMM Sockets\n-5x USB, 1x USB-C back IO\n-2x 12V RGB Headers, 3x 5V A-RGB Headers, 2x PCIe x16");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $280?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $280? y/n?");
                     CheckInputBuy();
                     purchase = 280;
                     buyItem();
@@ -606,7 +606,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-mATX Form Factor\n-Socket LGA1200 Compatible\n-2x DDR4 DIMM Sockets\n-6x USB back IO\n-1x PCIe x16");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $140?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $140? y/n?");
                     CheckInputBuy();
                     purchase = 140;
                     buyItem();
@@ -620,7 +620,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-Mid Tower\n-Maximum GPU Card Length: 370mm\n-360mm Radiator support\n-4x 2.5 drive bays, 2x 2.5/3.5 drive bays\n-3x Front USB\n-4x Addressable Fans");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $130?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $130? y/n?");
                     CheckInputBuy();
                     purchase = 130;
                     buyItem();
@@ -631,7 +631,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-Mid Tower\n-Maximum GPU Card Length: 400mm\n-280mm Radiator support\n-3x 2.5 drive bays, 2x 2.5/3.5 drive bays\n-2x Front USB\n-2x 120mm D-RGB Front Fans");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $150?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $150? y/n?");
                     CheckInputBuy();
                     purchase = 150;
                     buyItem();
@@ -642,7 +642,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-Mid Tower\n-Maximum GPU Card Length: 360mm\n-360mm Radiator support\n-2x 2.5 drive bays, 2x 2.5/3.5 drive bays\n-1x Front USB, 1x Front USB-C");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $155?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $155? y/n?");
                     CheckInputBuy();
                     purchase = 155;
                     buyItem();
@@ -653,7 +653,7 @@ namespace assessment2_store_
                     Console.WriteLine("Specifications:");
                     Console.WriteLine("-Mid Tower\n-Maximum GPU Card Length: 370mm\n-360mm Radiator support\n-2x 2.5 drive bays, 2x 2.5/3.5 drive bays\n-2x Front USB");
 
-                    Console.WriteLine("\nDo you wish to purchase this item for $130?");
+                    Console.WriteLine("\nDo you wish to purchase this item for $130? y/n?");
                     CheckInputBuy();
                     purchase = 130;
                     buyItem();
